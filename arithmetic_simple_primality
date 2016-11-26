@@ -1,0 +1,41 @@
+print "Code Drills"
+
+print "Now I am going to run a calculation based on user inputs that involve conversion of inputs and a primality check."
+
+def isPrime(value):
+    for i in range(2,int(value**0.5)+1):
+        if value%i==0:
+            return False
+
+    return True
+    
+"""This is code taken from stack overflow for a simple primality check and adjusted for my use.
+"value" was sustiuted for n throughout the defintion of isPrime.  This is not an optimized primality check
+If the user inputs a very large potential prime number, this test will not manage the discovery quickly.  Rather,
+a probible primality check would be more effeicent although might produce false positives."
+src: http://stackoverflow.com/questions/15285534/isprime-function-for-python-language
+"""
+
+#inputs were converted to the correct type
+
+user_inputone = raw_input("Input a floating point number", )
+user_floating = float(user_inputone)
+
+user_prime_str = raw_input("Input a prime number", )
+user_prime = int(user_prime_str)
+
+"""this while loop take the boolen output of the isPrime check and based on that result
+exicutes the loop to collect a user input prime until the user gives a prime number. If the result
+is a prime, the loop will exucte the arthmetic fuction."""
+
+while True:
+
+    prime_truth = isPrime(user_prime)
+
+    if prime_truth:
+        print "Answer equals your numbers summed", user_floating + user_prime
+        break
+
+    else:
+        user_prime_str = raw_input("Input a prime number", )
+        user_prime = float(user_prime_str)
